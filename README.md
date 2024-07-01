@@ -46,3 +46,30 @@ class YourViewController: UIViewController, PlaceSearchDelegate, PlaceDetailsDel
         )
     }
 }
+
+## Making API Requests
+### Search Places
+
+```swift
+fribeService?.request(.searchPlaces(text: "salon"))
+```
+### Get Place Details
+```swift
+fribeService?.request(.searchPlaceDetails(text: "oman", location: "some-location"))
+```
+### Calculate Distance
+```swift
+fribeService?.request(.distance(originLatLng: "57.535793,22.376252", destinationLatLng: "57.535236,22.376083", annotations: ["distance", "duration"]))
+```
+### Get Distance with Polyline Geometry
+```swift
+fribeService?.request(.distanceWithPolyline(originLatLng: "17.6125018,54.0344293", destinationLatLng: "21.473534,55.975414", steps: true, overview: .simplified))
+```
+### Get Distance with GeoJSON Geometry
+```swift
+fribeService?.request(.distanceWithGeoJSON(originLatLng: "17.6125018,54.0344293", destinationLatLng: "21.473534,55.975414", steps: true, overview: .simplified))
+```
+### Nearby Search
+```swift
+fribeService?.request(.nearbySearch(location: "some-location", radius: "500", locationName: "some-name"))
+```
